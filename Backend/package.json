@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "nyc mocha --timeout 30000 --require ts-node/register test/**/*.ts",
     "start": "node dist/index.js",
     "dev": "nodemon src/index.ts",
     "build": "tsc"
@@ -15,10 +15,13 @@
   "devDependencies": {
     "@types/express": "^5.0.3",
     "@types/jsonwebtoken": "^9.0.10",
+    "@types/mocha": "^10.0.10",
     "@types/node": "^24.0.10",
     "@types/redis": "^4.0.10",
     "@types/socket.io": "^3.0.1",
+    "mocha": "^11.7.1",
     "nodemon": "^3.1.10",
+    "nyc": "^17.1.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   },

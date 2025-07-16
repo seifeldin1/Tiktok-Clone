@@ -1,28 +1,28 @@
-import mongoose from "mongoose";
+import mongoose, { Schema } from "mongoose";
+import { IHashtag } from "../interfaces/models/IHashtag";
 
-const hashtagSchema = new mongoose.Schema(
+const hashtagSchema = new Schema<IHashtag>({
+  tag: {
+    type: String,
+    required: true,
+    unique: true,
+    trim: true,
+  },
+  videoCount: {
+    type: Number,
+    default: 0,
+  },
+  videos: [
     {
-        tag: {
-            type: String,
-            required: true,
-            unique: true,
-            trim: true,
-        },
-        videoCount: {
-            type: Number,
-            default: 0,
-        },
-        videos: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Video",
-        },
-        ],
-        trendingScore: {
-            type: Number,
-            default: 0,
-        },
-    },{ timestamps: true });
+      type: Schema.Types.ObjectId,
+      ref: "Video",
+    },
+  ],
+  trendingScore: {
+    type: Number,
+    default: 0,
+  },
+}, { timestamps: true });
 
-const Hashtag = mongoose.model("Hashtag", hashtagSchema);
+const Hashtag = mongoose.model<IHashtag>("Hashtag", hashtagSchema);
 export default Hashtag;

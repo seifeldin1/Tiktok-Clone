@@ -1,41 +1,41 @@
-import mongoose from "mongoose"
+import mongoose, { Schema } from "mongoose";
+import { IComment } from "../interfaces/models/IComment";
 
-const commentSchema = new mongoose.Schema({
-    videoId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Video",
-        required: true,
+const commentSchema = new Schema<IComment>({
+  videoId: {
+    type: Schema.Types.ObjectId,
+    ref: "Video",
+    required: true,
+  },
+  author: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
+  content: {
+    type: String,
+    required: true,
+  },
+  parentComment: {
+    type: Schema.Types.ObjectId,
+    ref: "Comment",
+    default: null,
+  },
+  reactions: {
+    like: {
+      type: Number,
+      default: 0,
     },
-    author: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
-        required: true,
+    laugh: {
+      type: Number,
+      default: 0,
     },
-    content:{
-        type:String,
-        required:true,
+    sad: {
+      type: Number,
+      default: 0,
     },
-    parentComment: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Comment",
-        default: null,
-    },
-        reactions: {
-        like: {
-        type: Number,
-        default: 0,
-        },
-        laugh: {
-        type: Number,
-        default: 0,
-        },
-        sad: {
-        type: Number,
-        default: 0,
-        },
-    },
+  },
+}, { timestamps: true });
 
-},{timestamps: true});
-
-const Comment = mongoose.model("Message",commentSchema);
+const Comment = mongoose.model<IComment>("Comment", commentSchema);
 export default Comment;
