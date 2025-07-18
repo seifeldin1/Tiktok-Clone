@@ -8,9 +8,14 @@ const userSchema = new Schema<IUser>({
     required: true,
     unique: true,
   },
+  username: {
+    type: String,
+    required: true,
+    unique: true,
+  },
   password: {
     type: String,
-    minlength: 6,
+    minlength: 8,
   },
   fullName: {
     type: String,
@@ -28,6 +33,10 @@ const userSchema = new Schema<IUser>({
     enum: ["user", "admin"],
     default: "user",
   },
+  deleted: {
+    type: Boolean,
+    default: false,
+  },
   googleId: {
     type: String,
     unique: true,
@@ -40,5 +49,5 @@ const userSchema = new Schema<IUser>({
   },
 }, { timestamps: true });
 
-const User = mongoose.model<IUser>("User", userSchema);
-export default User;
+const UserModel = mongoose.model<IUser>("User", userSchema);
+export default UserModel;
