@@ -47,6 +47,10 @@ const userSchema = new Schema<IUser>({
     unique: true,
     sparse: true,
   },
+  refreshToken: {
+  type: String,
+  default: "",
+  }
 }, { timestamps: true });
 
 const UserModel = mongoose.model<IUser>("User", userSchema);

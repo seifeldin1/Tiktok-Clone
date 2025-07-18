@@ -13,8 +13,7 @@ export interface IUser extends Document {
   createdAt: Date;
   updatedAt: Date;
   deleted ?: boolean
-
-
+  refreshToken?: string
   googleId?: string;
   facebookId?: string;
 }
