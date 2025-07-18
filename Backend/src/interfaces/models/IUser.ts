@@ -11,8 +11,6 @@ export interface IUser extends Document {
   role: 'user' | 'admin';
   createdAt: Date;
   updatedAt: Date;
-
-
   googleId?: string;
   facebookId?: string;
 }

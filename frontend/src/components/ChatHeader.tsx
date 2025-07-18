@@ -1,30 +1,28 @@
-import { X } from "lucide-react";
+interface ChatHeaderProps {
+  user: {
+    name: string;
+    avatar: string;
+  } | null;
+}
 
-
-const ChatHeader = () => {
+const ChatHeader = ({ user }: ChatHeaderProps) => {
   return (
-    <div className='p-2.5 border-b border-base-300'>
-      <div className='flex items-center justify-between'>
-          <div className='flex items-center gap-3'>
-            {/*avatar */}
-            <div className='avatar'>
-              <div className='size-10 rounded-full relative'>
-                  <img src="/avatar.png" alt="user" />
-              </div>
-            </div>
-            {/*User Info */}
-            <div className="flex flex-col gap-2">
-              <h3 className="font-semibold text-xl">Amr Ashraf</h3>
-              <p className={`text-sm text-base-content `}>Online</p>
+    <div className="p-3 border-b border-gray-700 bg-black text-white">
+      <div className="flex items-center justify-between">
+        {user ? (
+          <div className="flex items-center gap-3">
+            <img src={user.avatar} alt={user.name + "'s avatar"} className="w-10 h-10 rounded-full" />
+            <div>
+              <p className="text-sm font-semibold">{user.name}</p>
+              <p className="text-xs text-gray-400">Online</p>
             </div>
           </div>
-          {/*close button */}
-          <button>
-            <X />
-          </button>
+        ) : (
+          <></>
+        )}
       </div>
     </div>
   );
 };
 
-export default ChatHeader
+export default ChatHeader;

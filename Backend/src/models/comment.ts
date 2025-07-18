@@ -37,5 +37,9 @@ const commentSchema = new Schema<IComment>({
   },
 }, { timestamps: true });
 
+commentSchema.virtual('id').get(function () {
+  return this._id;
+});
+
 const Comment = mongoose.model<IComment>("Comment", commentSchema);
 export default Comment;
