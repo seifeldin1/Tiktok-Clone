@@ -19,7 +19,7 @@ const ChatMessages = ({ selectedUser }: ChatMessagesProps) => {
 
   return (
     <div className="flex-1 overflow-y-auto px-4 py-2 space-y-1 bg-black">
-      <div className="text-center text-xs text-gray-400 my-2">
+      <div className="text-center text-xs text-gray-500 my-2">
         April 6, 2025
       </div>
       {messages.map((msg) => (
