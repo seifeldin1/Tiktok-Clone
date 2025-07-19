@@ -1,10 +1,10 @@
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import { connectDB } from './config/db';
 
 dotenv.config();
 
-mongoose.connect(process.env.MONGO_URI!)
-  .then(() => console.log('✅ Connected to MongoDB Atlas'))
-  .catch(err => console.error('❌ Connection error:', err));
-
-console.log("Server is running...")
+connectDB().then(() => {
+  
+  console.log("Server is running...")
+})

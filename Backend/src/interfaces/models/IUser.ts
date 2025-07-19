@@ -2,6 +2,7 @@ import { Document, Types } from "mongoose";
 
 export interface IUser extends Document {
   email: string;
+  username: string;
   password?: string; 
   fullName: string;
   profilePic?: string;
@@ -11,8 +12,8 @@ export interface IUser extends Document {
   role: 'user' | 'admin';
   createdAt: Date;
   updatedAt: Date;
-
-
+  deleted ?: boolean
+  refreshToken?: string
   googleId?: string;
   facebookId?: string;
 }
