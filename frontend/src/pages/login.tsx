@@ -1,4 +1,3 @@
-import React from 'react';
 
 const Login = () => {
   const toggleDarkMode = () => {
@@ -21,7 +20,7 @@ const Login = () => {
       {/* Login Card */}
       <div className="relative z-10 bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg p-8 md:p-10 rounded-3xl shadow-2xl w-full max-w-sm animate-slideUp">
         <h2 className="text-3xl font-extrabold text-center mb-8 text-gray-800 dark:text-white">
-          Welcome Back!
+          Join the Doom Scroll!
         </h2>
 
         <form className="space-y-5">

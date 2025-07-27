@@ -1,4 +1,3 @@
-import React from 'react';
 
 const Signup = () => {
   const toggleDarkMode = () => {
@@ -77,7 +76,7 @@ const Signup = () => {
         <p className="mt-6 text-center text-sm text-gray-700 dark:text-gray-300">
           Already have an account?{' '}
           <a
-            href="/login"
+            href="/"
             className="text-pink-600 dark:text-pink-400 font-semibold hover:underline"
           >
             Log in
